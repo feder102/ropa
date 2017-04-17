@@ -24,9 +24,10 @@
 		<div class="col-md-9">
             			<?php echo $this->Form->create('Cliente', array('role' => 'form')); ?>
 
-            				<div class="form-group">
+        <div class="form-group">
 					<?php echo $this->Form->input('dni', array('type'=>'numeric','label' => 'Dni', 'class' => 'form-control', 'placeholder' => 'Documento'));?>
 				</div>
+				 <div class="form-group">
 					<?php echo $this->Form->input('nombre', array('label' => 'nombre', 'class' => 'form-control', 'placeholder' => 'Nombre'));?>
 				</div>
 				<div class="form-group">
