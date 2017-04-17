@@ -15,14 +15,14 @@ class DepositosController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-
+	public $uses = array('Cliente', 'ClienteCuenta', 'Deposito' );
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-        $this->set('depositos', $this->Deposito->find('all', array('recursive' => -1, 'conditions' => array('Deposito.deleted' => 0),
+        $this->set('depositos', $this->Deposito->find('all', array('recursive' => -1,
 				$this->Paginator->paginate('Deposito'))));
 	}
 
@@ -46,17 +46,34 @@ class DepositosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($id = null) {
 		if ($this->request->is('post')) {
 			$this->Deposito->create();
-			if ($this->Deposito->save($this->request->data)) {
+			$this->request->data['Deposito']['id_cuenta_clie'] = $id;
+			$this->request->data['Deposito']['created'] = date("d-m-Y G:i:s");
+			// $cli_cue = $this->ClienteCuenta->find('first', array('conditions' => array('ClienteCuenta.dni_cliente' => $id)));
+			$clie_cue = $this->ClienteCuenta->find('first', array('conditions' => array('ClienteCuenta.' . $this->ClienteCuenta->primaryKey => $id)));
+// pr($clie_cue);
+			$importe1 = $clie_cue['ClienteCuenta']['importe'];
+			$importe2 = $this->request->data['Deposito']['importe'];
+			$resul = $importe1 + $importe2;
+			$clie_cue['ClienteCuenta']['importe'] =  $resul;
+
+			// pr($cli_cue);
+			// pr($clie_cue);
+			if ($this->Deposito->saveAll($this->request->data)) {
+				$this->ClienteCuenta->save($clie_cue['ClienteCuenta']);
             				$this->Session->setFlash(__('El/La deposito ha sido guardado/a.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index','controller'=>'clientes'));
 			} else {
 				$this->Session->setFlash(__('El/la deposito no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}
+		}else{
+			$options = array('conditions' => array('ClienteCuenta.' . $this->ClienteCuenta->primaryKey => $id));
+			$this->request->data = $this->ClienteCuenta->find('first', $options);
+			// pr($this->request->data );
 		}
-        	}
+	}
 
 /**
  * edit method

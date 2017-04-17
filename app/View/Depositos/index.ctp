@@ -12,16 +12,16 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<div class="actions">
+			<!-- <div class="actions">
 				<div class="panel panel-default">
 					<div class="panel-heading">Acciones</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Deposito'), array('action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Deposito'), array('action' => 'add'), array('escape' => false)); ?></li>
 						        							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
+						</div>
+				</div>
+			</div>-->
 		</div><!-- end col md 3 -->
 
 		<div class="col-md-9">
@@ -44,9 +44,9 @@
 						<td style="text-align: center" nowrap><?php echo h($deposito['Deposito']['created']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($deposito['Deposito']['id']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $deposito['Deposito']['id']), array('title' => 'Ver', 'escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $deposito['Deposito']['id']), array('title' => 'Editar', 'escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $deposito['Deposito']['id']), array('title' => 'Eliminar', 'escape' => false), __('Está seguro que quiere eliminar # %s?', $deposito['Deposito']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $deposito['Deposito']['id_cuenta_clie']), array('title' => 'Ver', 'escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $deposito['Deposito']['id_cuenta_clie']), array('title' => 'Editar', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $deposito['Deposito']['id_cuenta_clie']), array('title' => 'Eliminar', 'escape' => false), __('Está seguro que quiere eliminar # %s?', $deposito['Deposito']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

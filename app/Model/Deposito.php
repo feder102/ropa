@@ -11,6 +11,7 @@ class Deposito extends AppModel {
  *
  * @var array
  */
+ public $primaryKey = 'id_cuenta_clie';
 	public $validate = array(
 		'id_cuenta_clie' => array(
 			'numeric' => array(
@@ -33,4 +34,22 @@ class Deposito extends AppModel {
 			),
 		),
 	);
+	public $hasMany = array(
+		'ClienteCuenta' => array(
+			'className' => 'ClienteCuenta',
+			'foreignKey' => 'dni_cliente',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+	// public $belongsTo = array(
+	// 	'ClienteCuenta' => array(
+	// 		'className' => 'ClienteCuenta',
+	// 		'foreignKey' => 'dni_cliente',
+	// 		'conditions' => '',
+	// 		'fields' => '',
+	// 		'order' => ''
+	// 	)
+	// );
 }

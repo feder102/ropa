@@ -6,13 +6,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Nombre del Proyecto</a>
+          <!-- <a class="navbar-brand" href="#">Nombre del Proyecto</a> -->
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#about">Acerca de...</a></li>
-            <li><a href="#contact">Contacto</a></li>
+            <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span>', array('action' => 'index', 'controller'=>'clientes'), array('title' => 'Clientes', 'escape' => false)); ?></li>
+            <!-- <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
+            <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
+            <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li> -->
           </ul>
         </div><!--/.nav-collapse -->
       </div>

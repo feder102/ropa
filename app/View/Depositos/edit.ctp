@@ -20,7 +20,7 @@
 							    							</ul>
 						</div>
 					</div>
-				</div>			
+				</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
             			<?php echo $this->Form->create('Deposito', array('role' => 'form')); ?>
@@ -32,7 +32,7 @@
 					<?php echo $this->Form->input('importe', array('label' => 'importe', 'class' => 'form-control', 'placeholder' => 'Importe'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('id', array('label' => 'id', 'class' => 'form-control', 'placeholder' => 'Id'));?>
+					<?php echo $this->Form->input('id', array('disabled','label' => 'id', 'class' => 'form-control', 'placeholder' => 'Id'));?>
 				</div>
             				<div class="form-group">
 					<?php echo $this->Form->submit(__('Guardar'), array('class' => 'btn btn-default')); ?>
@@ -49,7 +49,7 @@
         format: "dd/mm/yyyy",
         language: "es"
     });
-    
+
     $(".clockpicker").clockpicker({
         autoclose: true
     });
