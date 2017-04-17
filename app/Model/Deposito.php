@@ -11,7 +11,8 @@ class Deposito extends AppModel {
  *
  * @var array
  */
- public $primaryKey = 'id_cuenta_clie';
+ public $primaryKey = 'id';
+
 	public $validate = array(
 		'id_cuenta_clie' => array(
 			'numeric' => array(

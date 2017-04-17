@@ -28,6 +28,9 @@
 					<?php echo $this->Form->input('id_cuenta_clie', array('disabled','type'=>'numeric','value'=> $this->request->data['ClienteCuenta']['dni_cliente'],'label' => 'id_cuenta_clie', 'class' => 'form-control', 'placeholder' => 'Id Cuenta Clie'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('id', array('type'=>'hidden','label' => 'id', 'class' => 'form-control', 'placeholder' => 'Id Cuenta Clie'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('importe', array('label' => 'importe', 'class' => 'form-control', 'placeholder' => 'Importe'));?>
 				</div>
             				<div class="form-group">

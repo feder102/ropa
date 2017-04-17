@@ -48,20 +48,19 @@ class DepositosController extends AppController {
  */
 	public function add($id = null) {
 		if ($this->request->is('post')) {
-			$this->Deposito->create();
+
 			$this->request->data['Deposito']['id_cuenta_clie'] = $id;
 			$this->request->data['Deposito']['created'] = date("d-m-Y G:i:s");
-			// $cli_cue = $this->ClienteCuenta->find('first', array('conditions' => array('ClienteCuenta.dni_cliente' => $id)));
+			$this->Deposito->create();
 			$clie_cue = $this->ClienteCuenta->find('first', array('conditions' => array('ClienteCuenta.' . $this->ClienteCuenta->primaryKey => $id)));
 // pr($clie_cue);
 			$importe1 = $clie_cue['ClienteCuenta']['importe'];
 			$importe2 = $this->request->data['Deposito']['importe'];
 			$resul = $importe1 + $importe2;
 			$clie_cue['ClienteCuenta']['importe'] =  $resul;
-
 			// pr($cli_cue);
-			// pr($clie_cue);
-			if ($this->Deposito->saveAll($this->request->data)) {
+// pr($this->request->data);
+			if ($this->Deposito->save($this->request->data['Deposito'])) {
 				$this->ClienteCuenta->save($clie_cue['ClienteCuenta']);
             				$this->Session->setFlash(__('El/La deposito ha sido guardado/a.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index','controller'=>'clientes'));

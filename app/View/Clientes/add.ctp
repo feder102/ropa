@@ -39,9 +39,9 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('telefono', array('label' => 'telefono', 'class' => 'form-control', 'placeholder' => 'Telefono'));?>
 				</div>
-				<!-- <div class="form-group">
-					< ?php echo $this->Form->input('ClienteCuenta.importe', array('label' => 'Importe', 'class' => 'form-control', 'placeholder' => 'Importe de la cuenta'));?>
-				</div> -->
+				<div class="form-group">
+					<?php echo $this->Form->input('ClienteCuenta.importe', array('label' => 'Importe', 'class' => 'form-control', 'placeholder' => 'Importe de la cuenta'));?>
+				</div>
 				<!-- <div class="form-group">
 					< ?php //echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
 				</div> -->
