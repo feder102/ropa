@@ -19,13 +19,13 @@
 							    							</ul>
 						</div>
 					</div>
-				</div>			
+				</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
             			<?php echo $this->Form->create('Deposito', array('role' => 'form')); ?>
 
             				<div class="form-group">
-					<?php echo $this->Form->input('id_cuenta_clie', array('label' => 'id_cuenta_clie', 'class' => 'form-control', 'placeholder' => 'Id Cuenta Clie'));?>
+					<?php echo $this->Form->input('id_cuenta_clie', array('disabled','type'=>'numeric','value'=> $this->request->data['ClienteCuenta']['dni_cliente'],'label' => 'id_cuenta_clie', 'class' => 'form-control', 'placeholder' => 'Id Cuenta Clie'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('importe', array('label' => 'importe', 'class' => 'form-control', 'placeholder' => 'Importe'));?>
@@ -45,7 +45,7 @@
         format: "dd/mm/yyyy",
         language: "es"
     });
-    
+
     $(".clockpicker").clockpicker({
         autoclose: true
     });

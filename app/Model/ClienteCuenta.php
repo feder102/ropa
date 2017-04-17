@@ -59,4 +59,13 @@ class ClienteCuenta extends AppModel {
 			'order' => ''
 		)
 	);
+	public $hasMany = array(
+		'Deposito' => array(
+			'className' => 'Deposito',
+			'foreignKey' => 'id_cuenta_clie',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-04-2017 a las 23:13:50
+-- Tiempo de generación: 18-04-2017 a las 00:09:29
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -32,9 +32,16 @@ CREATE TABLE `clientes` (
   `apellido` varchar(45) DEFAULT NULL,
   `direccion` varchar(45) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   `email` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`dni`, `nombre`, `apellido`, `direccion`, `telefono`, `deleted`, `email`) VALUES
+(34915890, 'Federico', 'Castiglione', 'Barrio sarmiento 355 este rawson, San juan', '2645317435', 0, 'feder102@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -45,8 +52,15 @@ CREATE TABLE `clientes` (
 CREATE TABLE `cliente_cuentas` (
   `dni_cliente` int(11) NOT NULL,
   `importe` float DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cliente_cuentas`
+--
+
+INSERT INTO `cliente_cuentas` (`dni_cliente`, `importe`, `deleted`) VALUES
+(34915890, 1130, 0);
 
 -- --------------------------------------------------------
 
@@ -69,7 +83,7 @@ CREATE TABLE `cli_cta_ventas` (
 CREATE TABLE `colores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -85,6 +99,13 @@ CREATE TABLE `depositos` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `depositos`
+--
+
+INSERT INTO `depositos` (`id_cuenta_clie`, `importe`, `created`, `id`) VALUES
+(34915890, 100, '17-04-2017 23:54:45', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -96,7 +117,7 @@ CREATE TABLE `item_devoluciones` (
   `id_item_venta` int(11) DEFAULT NULL,
   `fecha` datetime DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -111,7 +132,7 @@ CREATE TABLE `item_ventas` (
   `created` datetime DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL,
   `id_prenda` int(11) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   `importe` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -124,7 +145,7 @@ CREATE TABLE `item_ventas` (
 CREATE TABLE `listas` (
   `nombre` varchar(45) DEFAULT NULL,
   `porcentaje` float DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -141,7 +162,7 @@ CREATE TABLE `prendas` (
   `id_talle` int(11) DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
   `pcosto` float DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -164,7 +185,7 @@ CREATE TABLE `prenda_lista` (
 CREATE TABLE `talles` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -176,7 +197,7 @@ CREATE TABLE `talles` (
 CREATE TABLE `tipo_venta` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -190,7 +211,7 @@ CREATE TABLE `vendedores` (
   `nombre` varchar(45) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `direccion` varchar(45) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL
+  `deleted` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -202,7 +223,7 @@ CREATE TABLE `vendedores` (
 CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `importe_final` float DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT '0',
   `id_cliente` int(11) DEFAULT NULL,
   `id_vendedor` int(11) DEFAULT NULL,
   `id_tipo_venta` int(11) DEFAULT NULL
@@ -322,7 +343,7 @@ ALTER TABLE `colores`
 -- AUTO_INCREMENT de la tabla `depositos`
 --
 ALTER TABLE `depositos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `item_devoluciones`
 --
@@ -366,7 +387,7 @@ ALTER TABLE `ventas`
 -- Filtros para la tabla `cliente_cuentas`
 --
 ALTER TABLE `cliente_cuentas`
-  ADD CONSTRAINT `fk_cliente_cuentas_1` FOREIGN KEY (`dni_cliente`) REFERENCES `clientes` (`dni`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_cliente_cuentas_1` FOREIGN KEY (`dni_cliente`) REFERENCES `clientes` (`dni`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `cli_cta_ventas`

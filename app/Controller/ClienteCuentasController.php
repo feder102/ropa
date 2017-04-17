@@ -15,7 +15,7 @@ class ClienteCuentasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-
+	public $uses = array('Cliente', 'ClienteCuenta', 'Deposito' );
 /**
  * index method
  *
@@ -51,7 +51,7 @@ class ClienteCuentasController extends AppController {
 			$this->ClienteCuenta->create();
 			if ($this->ClienteCuenta->save($this->request->data)) {
             				$this->Session->setFlash(__('El/La cliente cuenta ha sido guardado/a.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index','controller'=>'clientes'));
 			} else {
 				$this->Session->setFlash(__('El/la cliente cuenta no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}
@@ -70,9 +70,14 @@ class ClienteCuentasController extends AppController {
 			throw new NotFoundException(__('cliente cuenta no válido/a.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->ClienteCuenta->save($this->request->data)) {
+			// $this->Deposito->create();
+			// pr($this->request->data);
+			// $this->Deposito->importe = $this->request->data['ClienteCuenta']['importe'];
+
+			if ($this->ClienteCuenta->saveAll($this->request->data)) {
+				$this->Deposito->save();
             				$this->Session->setFlash(__('El/La cliente cuenta ha sido guardado/a.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
+				// return $this->redirect(array('action' => 'index','controller'=>'clientes'));
 			} else {
 				$this->Session->setFlash(__('El/La cliente cuenta no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}

@@ -19,6 +19,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Cliente'), array('action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Ver depositos realizados'), array('action' => 'index','controller'=>'depositos'), array('escape' => false)); ?></li>
 						        							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -51,7 +52,7 @@
 						<!-- <td style="text-align: center" nowrap><?php //echo h($cliente['Cliente']['deleted']); ?>&nbsp;</td> -->
 						<td style="text-align: center" nowrap><?php echo h($cliente['Cliente']['email']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $cliente['Cliente']['dni']), array('title' => 'Ver', 'escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>', array('controller'=>'Depositos','action' => 'add', $cliente['Cliente']['dni']), array('title' => 'Depositar', 'escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $cliente['Cliente']['dni']), array('title' => 'Eliminar', 'escape' => false), __('Está seguro que quiere eliminar # %s?', $cliente['Cliente']['dni'])); ?>
 						</td>
