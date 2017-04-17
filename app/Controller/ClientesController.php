@@ -15,14 +15,14 @@ class ClientesController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-
+	public $uses = array('Cliente','ClienteCuenta');
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-        $this->set('clientes', $this->Cliente->find('all', array('recursive' => -1, 'conditions' => array('Cliente.deleted' => 0),
+        $this->set('clientes', $this->Cliente->find('all', array('recursive' => 0, 'conditions' => array('Cliente.deleted' => 0),
 				$this->Paginator->paginate('Cliente'))));
 	}
 
@@ -49,14 +49,16 @@ class ClientesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Cliente->create();
-			if ($this->Cliente->save($this->request->data)) {
+			$this->ClienteCuenta->create();
+			if ($this->Cliente->saveAll($this->request->data)) {
             				$this->Session->setFlash(__('El/La cliente ha sido guardado/a.'), 'default', array('class' => 'alert alert-success'));
+										// pr($this->request->data);
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El/la cliente no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}
 		}
-        	}
+	}
 
 /**
  * edit method

@@ -20,7 +20,7 @@
 							    							</ul>
 						</div>
 					</div>
-				</div>			
+				</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
             			<?php echo $this->Form->create('Cliente', array('role' => 'form')); ?>
@@ -41,8 +41,11 @@
 					<?php echo $this->Form->input('telefono', array('label' => 'telefono', 'class' => 'form-control', 'placeholder' => 'Telefono'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
+					<?php echo $this->Form->input('ClienteCuenta.importe', array('disabled','label' => 'importe', 'class' => 'form-control', 'placeholder' => 'Importe de la cuenta'));?>
 				</div>
+				<!-- <div class="form-group">
+					<?php //echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
+				</div> -->
 				<div class="form-group">
 					<?php echo $this->Form->input('email', array('label' => 'email', 'class' => 'form-control', 'placeholder' => 'Email'));?>
 				</div>
@@ -61,7 +64,7 @@
         format: "dd/mm/yyyy",
         language: "es"
     });
-    
+
     $(".clockpicker").clockpicker({
         autoclose: true
     });

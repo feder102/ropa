@@ -1,3 +1,4 @@
+<?php //pr($clientes); ?>
 <div class="clientes index">
 
 	<div class="row">
@@ -34,7 +35,7 @@
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('apellido'); ?></th>
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('direccion'); ?></th>
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('telefono'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('deleted'); ?></th>
+			                			                    <!-- <th style="text-align: center" nowrap><?php //echo $this->Paginator->sort('deleted'); ?></th> -->
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('email'); ?></th>
 			                			                <th style="text-align: center" nowrap class="no_sorting sorting actions">Acciones</th>
 					    </tr>
@@ -47,7 +48,7 @@
 						<td style="text-align: center" nowrap><?php echo h($cliente['Cliente']['apellido']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($cliente['Cliente']['direccion']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($cliente['Cliente']['telefono']); ?>&nbsp;</td>
-						<td style="text-align: center" nowrap><?php echo h($cliente['Cliente']['deleted']); ?>&nbsp;</td>
+						<!-- <td style="text-align: center" nowrap><?php //echo h($cliente['Cliente']['deleted']); ?>&nbsp;</td> -->
 						<td style="text-align: center" nowrap><?php echo h($cliente['Cliente']['email']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $cliente['Cliente']['dni']), array('title' => 'Ver', 'escape' => false)); ?>

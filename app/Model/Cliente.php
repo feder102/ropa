@@ -50,4 +50,13 @@ class Cliente extends AppModel {
 			),
 		),
 	);
+	public $hasOne = array(
+		'ClienteCuenta' => array(
+			'className' => 'ClienteCuenta',
+			'foreignKey' => 'dni_cliente',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }
