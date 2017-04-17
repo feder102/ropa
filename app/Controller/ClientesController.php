@@ -97,7 +97,7 @@ class ClientesController extends AppController {
 			throw new NotFoundException(__('cliente no válido/a.'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Cliente->saveField('eliminado', 1)) {
+		if ($this->Cliente->saveField('deleted', 1)) {
             			$this->Session->setFlash(__('El/La cliente ha sido eliminado/a.'), 'default', array('class' => 'alert alert-success'));
 		} else {
 			$this->Session->setFlash(__('El/La cliente no se pudo eliminar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
