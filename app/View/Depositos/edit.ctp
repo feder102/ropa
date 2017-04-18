@@ -15,7 +15,7 @@
 					<div class="panel-heading">Acciones</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-							    							     <li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar'), array('action' => 'delete', $this->Form->value('Deposito.id')), array('escape' => false), __('Está seguro que quiere eliminar # %s?', $this->Form->value('Deposito.id'))); ?></li>
+							    							     <li><?php //echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar'), array('action' => 'delete', $this->Form->value('Deposito.id')), array('escape' => false), __('Está seguro que quiere eliminar # %s?', $this->Form->value('Deposito.id'))); ?></li>
 							    								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Depositos'), array('action' => 'index'), array('escape' => false)); ?></li>
 							    							</ul>
 						</div>
@@ -26,7 +26,7 @@
             			<?php echo $this->Form->create('Deposito', array('role' => 'form')); ?>
 
             				<div class="form-group">
-					<?php echo $this->Form->input('id_cuenta_clie', array('label' => 'id_cuenta_clie', 'class' => 'form-control', 'placeholder' => 'Id Cuenta Clie'));?>
+					<?php echo $this->Form->input('id_cuenta_clie', array('disabled','label' => 'id_cuenta_clie', 'class' => 'form-control', 'placeholder' => 'Id Cuenta Clie'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('importe', array('label' => 'importe', 'class' => 'form-control', 'placeholder' => 'Importe'));?>

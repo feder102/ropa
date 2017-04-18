@@ -95,7 +95,7 @@ class TallesController extends AppController {
 			throw new NotFoundException(__('talle no válido/a.'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Talle->saveField('eliminado', 1)) {
+		if ($this->Talle->saveField('deleted', 1)) {
             			$this->Session->setFlash(__('El/La talle ha sido eliminado/a.'), 'default', array('class' => 'alert alert-success'));
 		} else {
 			$this->Session->setFlash(__('El/La talle no se pudo eliminar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));

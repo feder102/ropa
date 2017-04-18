@@ -14,10 +14,10 @@
                     <div class="panel-heading">Acciones</div>
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
-                            		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Deposito'), array('action' => 'edit', $deposito['Deposito']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar Deposito'), array('action' => 'delete', $deposito['Deposito']['id']), array('escape' => false), __('Está seguro que quiere eliminar # %s?', $deposito['Deposito']['id'])); ?> </li>
+                            		<li><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Deposito'), array('action' => 'edit', $deposito['Deposito']['id']), array('escape' => false)); ?> </li>
+		<li><?php //echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar Deposito'), array('action' => 'delete', $deposito['Deposito']['id']), array('escape' => false), __('Está seguro que quiere eliminar # %s?', $deposito['Deposito']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Depositos'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;Nuevo Deposito'), array('action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;Nuevo Deposito'), array('action' => 'add'), array('escape' => false)); ?> </li>
                         </ul>
                     </div><!-- end body -->
                 </div><!-- end panel -->
@@ -62,4 +62,3 @@
         </div><!-- end col md 9 -->
     </div>
 </div>
-
