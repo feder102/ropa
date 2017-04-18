@@ -43,4 +43,13 @@ class Talle extends AppModel {
 			),
 		),
 	);
+	public  $hasMany = array(
+		'Prenda' => array(
+			'className' => 'Prenda',
+			'foreignKey' => 'id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }
