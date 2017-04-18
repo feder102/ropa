@@ -35,16 +35,7 @@ class Deposito extends AppModel {
 			),
 		),
 	);
-	public $hasMany = array(
-		'ClienteCuenta' => array(
-			'className' => 'ClienteCuenta',
-			'foreignKey' => 'dni_cliente',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
-	// public $belongsTo = array(
+	// public $hasMany = array(
 	// 	'ClienteCuenta' => array(
 	// 		'className' => 'ClienteCuenta',
 	// 		'foreignKey' => 'dni_cliente',
@@ -53,4 +44,13 @@ class Deposito extends AppModel {
 	// 		'order' => ''
 	// 	)
 	// );
+	public $belongsTo = array(
+		'ClienteCuenta' => array(
+			'className' => 'ClienteCuenta',
+			'foreignKey' => 'dni_cliente',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }
