@@ -40,4 +40,21 @@ class PrendaListum extends AppModel {
 			),
 		),
 	);
+
+	public $hasMany = array(
+		'Lista' => array(
+			'className' => 'Lista',
+			'foreignKey' => 'id_lista',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Prenda' => array(
+			'className' => 'Prenda',
+			'foreignKey' => 'id_prenda',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }

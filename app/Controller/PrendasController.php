@@ -15,7 +15,7 @@ class PrendasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-
+	public $uses = array('Prenda','Colore','Talle');
 /**
  * index method
  *
@@ -55,8 +55,12 @@ class PrendasController extends AppController {
 			} else {
 				$this->Session->setFlash(__('El/la prenda no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}
+		}else{
+			$colores = $this->Colore->find('all', array('conditions'=> array('Colore.deleted'=>0)));
+			$talles = $this->Talle->find('all', array('conditions'=> array('Talle.deleted'=>0)));
+			$this->set(array('colores'=> $colores,'talles'=> $talles));
 		}
-        	}
+	}
 
 /**
  * edit method

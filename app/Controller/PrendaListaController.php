@@ -22,8 +22,7 @@ class PrendaListaController extends AppController {
  * @return void
  */
 	public function index() {
-        $this->set('prendaLista', $this->PrendaListum->find('all', array('recursive' => -1, 'conditions' => array('PrendaListum.deleted' => 0),
-				$this->Paginator->paginate('PrendaListum'))));
+        $this->set('prendaLista', $this->PrendaListum->find('all', array('recursive' => -1, $this->Paginator->paginate('PrendaListum'))));
 	}
 
 /**
