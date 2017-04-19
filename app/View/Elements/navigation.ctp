@@ -10,7 +10,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>', array('action' => 'home', 'controller'=>'Pages'), array('title' => 'Pages', 'escape' => false)); ?></li>
             <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span>', array('action' => 'index', 'controller'=>'clientes'), array('title' => 'Clientes', 'escape' => false)); ?></li>
+            <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>', array('action' => 'index', 'controller'=>'prendas'), array('title' => 'Prendas', 'escape' => false)); ?></li>
             <!-- <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
             <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
             <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li> -->
