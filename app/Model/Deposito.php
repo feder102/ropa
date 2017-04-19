@@ -44,7 +44,7 @@ class Deposito extends AppModel {
 	// 		'order' => ''
 	// 	)
 	// );
-	public $belongsTo = array(
+	public  $belongsTo = array(
 		'ClienteCuenta' => array(
 			'className' => 'ClienteCuenta',
 			'foreignKey' => 'id_cuenta_clie',

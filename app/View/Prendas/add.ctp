@@ -40,9 +40,9 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('pcosto', array('label' => 'pcosto', 'class' => 'form-control', 'placeholder' => 'Pcosto'));?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
-				</div>
+				<!-- <div class="form-group">
+					< ?php echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
+				</div> -->
             				<div class="form-group">
 					<?php echo $this->Form->submit(__('Guardar'), array('class' => 'btn btn-default')); ?>
 				</div>

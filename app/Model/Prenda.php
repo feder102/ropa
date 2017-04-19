@@ -11,6 +11,7 @@ class Prenda extends AppModel {
  *
  * @var array
  */
+// public $primaryKey = 'id';
 	public $validate = array(
 		'id' => array(
 			'numeric' => array(
@@ -108,4 +109,23 @@ class Prenda extends AppModel {
 			'order' => ''
 		),
 	);
+	public $belongsTo = array(
+		'Talle' => array(
+			'className' => 'Talle' ,
+			'foreignKey' => 'id' ,
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Colore' => array(
+			'className' => 'Colore' ,
+			'foreignKey' => 'id' ,
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+ );
+//  public $belongsTo = array(
+
+// );
 }
