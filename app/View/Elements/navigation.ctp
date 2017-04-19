@@ -14,20 +14,20 @@
             <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>', array('action' => 'home', 'controller'=>'Pages'), array('title' => 'Pages', 'escape' => false)); ?></li>
             <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span>', array('action' => 'index', 'controller'=>'clientes'), array('title' => 'Clientes', 'escape' => false)); ?></li>
             <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>', array('action' => 'index', 'controller'=>'prendas'), array('title' => 'Prendas', 'escape' => false)); ?></li>
-            <!-- <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
-            <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
+            <!-- <li>< ?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
+            <li>< ?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
 =======
           <ul id="menu" class="nav navbar-nav">
-            <li class="active"><?php echo $this->Html->link('<span class="glyphicon glyphicon-user"> Clientes</span>', array('action' => 'index', 'controller'=>'clientes'), array('title' => 'Clientes', 'escape' => false)); ?></li>
-            <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench"> Parametros</span>', array('action' => '#'), array('title' => 'Editar', 'escape' => false)); ?>
+            <li class="active">< ?php echo $this->Html->link('<span class="glyphicon glyphicon-user"> Clientes</span>', array('action' => 'index', 'controller'=>'clientes'), array('title' => 'Clientes', 'escape' => false)); ?></li>
+            <li>< ?php echo $this->Html->link('<span class="glyphicon glyphicon-wrench"> Parametros</span>', array('action' => '#'), array('title' => 'Editar', 'escape' => false)); ?>
               <ul>
-                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-text-width"> Talles</span>', array('action' => 'index','controller'=>'talles'), array('title' => 'Editar', 'escape' => false)); ?></li>
-                <li><?php echo $this->Html->link('<span class="glyphicon glyphicon-tent"> Colores</span>', array('action' => 'index','controller'=>'colores'), array('title' => 'Editar', 'escape' => false)); ?></li>
+                <li>< ?php echo $this->Html->link('<span class="glyphicon glyphicon-text-width"> Talles</span>', array('action' => 'index','controller'=>'talles'), array('title' => 'Editar', 'escape' => false)); ?></li>
+                <li>< ?php echo $this->Html->link('<span class="glyphicon glyphicon-tent"> Colores</span>', array('action' => 'index','controller'=>'colores'), array('title' => 'Editar', 'escape' => false)); ?></li>
               </ul>
             </li>
-          <!--  <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
->>>>>>> f9fd6a79dc6cb7dd5471100805e4bc3a677e2598
-            <li><?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li> -->
+          <!  <li>< ?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li>
+ f9fd6a79dc6cb7dd5471100805e4bc3a677e2598
+            <li>< ?php //echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $cliente['Cliente']['dni']), array('title' => 'Editar', 'escape' => false)); ?></li> -->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
