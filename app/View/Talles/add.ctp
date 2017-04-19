@@ -28,7 +28,11 @@
 					<?php echo $this->Form->input('nombre', array('label' => 'nombre', 'class' => 'form-control', 'placeholder' => 'Nombre'));?>
 				</div>
 				<!-- <div class="form-group">
+<<<<<<< HEAD
 					< ?php echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
+=======
+					<?php //echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
+>>>>>>> f9fd6a79dc6cb7dd5471100805e4bc3a677e2598
 				</div> -->
             				<div class="form-group">
 					<?php echo $this->Form->submit(__('Guardar'), array('class' => 'btn btn-default')); ?>
