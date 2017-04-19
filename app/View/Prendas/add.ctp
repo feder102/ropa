@@ -1,3 +1,4 @@
+<?php pr($colores); ?>
 <div class="prendas form">
 
 	<div class="row">
@@ -19,7 +20,7 @@
 							    							</ul>
 						</div>
 					</div>
-				</div>			
+				</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
             			<?php echo $this->Form->create('Prenda', array('role' => 'form')); ?>
@@ -57,7 +58,7 @@
         format: "dd/mm/yyyy",
         language: "es"
     });
-    
+
     $(".clockpicker").clockpicker({
         autoclose: true
     });

@@ -95,7 +95,7 @@ class ListasController extends AppController {
 			throw new NotFoundException(__('lista no válido/a.'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Lista->saveField('eliminado', 1)) {
+		if ($this->Lista->saveField('deleted', 1)) {
             			$this->Session->setFlash(__('El/La lista ha sido eliminado/a.'), 'default', array('class' => 'alert alert-success'));
 		} else {
 			$this->Session->setFlash(__('El/La lista no se pudo eliminar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
