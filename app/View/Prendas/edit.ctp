@@ -20,7 +20,7 @@
 							    							</ul>
 						</div>
 					</div>
-				</div>			
+				</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
             			<?php echo $this->Form->create('Prenda', array('role' => 'form')); ?>
@@ -33,6 +33,9 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('id_color', array('label' => 'id_color', 'class' => 'form-control', 'placeholder' => 'Id Color'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('nombre', array('label' => 'nombre', 'class' => 'form-control', 'placeholder' => 'Color'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('id_talle', array('label' => 'id_talle', 'class' => 'form-control', 'placeholder' => 'Id Talle'));?>
@@ -61,7 +64,7 @@
         format: "dd/mm/yyyy",
         language: "es"
     });
-    
+
     $(".clockpicker").clockpicker({
         autoclose: true
     });

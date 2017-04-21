@@ -18,6 +18,8 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Prenda'), array('action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Color'), array('action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Talle'), array('action' => 'add'), array('escape' => false)); ?></li>
 						        							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -29,12 +31,12 @@
 			    <table id="listado" class="dynamicTable table table-striped">
 				    <thead>
 					    <tr>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('id'); ?></th>
+			                			                    
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('descripcion'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('id_color'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('id_talle'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('color'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('talle'); ?></th>
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('stock'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('pcosto'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('precio costo'); ?></th>
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('deleted'); ?></th>
 			                			                <th style="text-align: center" nowrap class="no_sorting sorting actions">Acciones</th>
 					    </tr>
@@ -42,7 +44,7 @@
 				    <tbody>
 			            	<?php foreach ($prendas as $prenda): ?>
 					<tr>
-						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['id']); ?>&nbsp;</td>
+						
 						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['descripcion']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['id_color']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['id_talle']); ?>&nbsp;</td>

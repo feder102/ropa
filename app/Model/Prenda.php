@@ -93,22 +93,22 @@ class Prenda extends AppModel {
 			'order' => ''
 		),
 	);
-	public $belongsTo = array(
-		'Colore' => array(
-			'className' => 'Colore',
-			'foreignKey' => 'id_color',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Talle' => array(
-			'className' => 'Talle',
-			'foreignKey' => 'id_talle',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-	);
+	// public $belongsTo = array(
+	// 	'Colore' => array(
+	// 		'className' => 'Colore',
+	// 		'foreignKey' => 'id_color',
+	// 		'conditions' => '',
+	// 		'fields' => '',
+	// 		'order' => ''
+	// 	),
+	// 	'Talle' => array(
+	// 		'className' => 'Talle',
+	// 		'foreignKey' => 'id_talle',
+	// 		'conditions' => '',
+	// 		'fields' => '',
+	// 		'order' => ''
+	// 	),
+	// );
 	public $belongsTo = array(
 		'Talle' => array(
 			'className' => 'Talle' ,
