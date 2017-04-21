@@ -1,0 +1,76 @@
+<div class="itemPrendas index">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1><?php echo __('Item Prendas'); ?></h1>
+			</div>
+		</div><!-- end col md 12 -->
+	</div><!-- end row -->
+
+
+<!-- bosteros putos-->
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="actions">
+				<div class="panel panel-default">
+					<div class="panel-heading">Acciones</div>
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Item Prenda'), array('action' => 'add'), array('escape' => false)); ?></li>
+						        							</ul>
+						</div><!-- end body -->
+				</div><!-- end panel -->
+			</div><!-- end actions -->
+		</div><!-- end col md 3 -->
+
+		<div class="col-md-9">
+            <div class="table-responsive">
+			    <table id="listado" class="dynamicTable table table-striped">
+				    <thead>
+					    <tr>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('id_prenda'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('id_color'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('id_talle'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('stock'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('created'); ?></th>
+			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('deleted'); ?></th>
+			                			                <th style="text-align: center" nowrap class="no_sorting sorting actions">Acciones</th>
+					    </tr>
+				    </thead>
+				    <tbody>
+			            	<?php foreach ($itemPrendas as $itemPrenda): ?>
+					<tr>
+						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['id_prenda']); ?>&nbsp;</td>
+						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['id_color']); ?>&nbsp;</td>
+						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['id_talle']); ?>&nbsp;</td>
+						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['stock']); ?>&nbsp;</td>
+						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['created']); ?>&nbsp;</td>
+						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['deleted']); ?>&nbsp;</td>
+						<td style="text-align: center" nowrap class="actions">
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $itemPrenda['ItemPrenda']['y']), array('title' => 'Ver', 'escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $itemPrenda['ItemPrenda']['y']), array('title' => 'Editar', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $itemPrenda['ItemPrenda']['y']), array('title' => 'Eliminar', 'escape' => false), __('Está seguro que quiere eliminar # %s?', $itemPrenda['ItemPrenda']['y'])); ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				    </tbody>
+			    </table>
+            </div>
+		</div> <!-- end col md 9 -->
+	</div><!-- end row -->
+</div><!-- end containing of content -->
+
+<script>
+    $(document).ready(function() {
+        $('#listado').dataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false
+        });
+    });
+</script>
