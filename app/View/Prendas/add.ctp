@@ -1,6 +1,7 @@
 <?php
 echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
  ?>
+
 <div class="prendas form" data-ng-controller="addPrendaCtrl">
 
 	<div class="row">
@@ -44,14 +45,17 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 				<div class="form-group">
 					<?php echo $this->Form->input('pcosto', array('label' => 'pcosto', 'class' => 'form-control', 'placeholder' => 'Pcosto'));?>
 				</div>
-				{{itemPrenda}}
 				<div ng-repeat="item in itemPrenda">
 					<?php //echo $this->Form->input('Color', array('label' => false, 'div' => false, 'class' => 'form-control fg-input', 'data-placeholder' => 'Ingresá las categorías aquí...', 'data-tag-select', 'data-ng-model' => 'Color', 'required')); ?>
-					<select chosen data-ng-model="Color" style="width:500px" ng-repeat="c in Color">
-		        <option value="{{c.id}}">{{c.nombre}}</option>
-		      </select>
-					<input type="text" placeholder="Ingrese color" ng-model="item.color">
-	        <input ng-class="{'blockInput': !item.id_talle}" type="text" placeholder="Ingrese talle" ng-model="item.Talle">
+					<select chosen ng-model="item.id_color" ng-options="s.id as s.nombre for s in Color">
+  					<option value="item.id_color"></option>
+					</select>
+					<select chosen ng-model="item.id_talle" ng-options="t.id as t.nombre for t in Talle">
+  					<option value="item.id_talle"></option>
+					</select>
+					{{item}}
+					<!-- <input type="text" hidden placeholder="Ingrese color" ng-model="{{id}}"> -->
+	        <!-- <input ng-class="{'blockInput': !item.id_talle}" type="text" placeholder="Ingrese talle" ng-model="item.Talle"> -->
 	        <input type="text" placeholder="Ingrese cantidad" ng-model="item.stock">
 	      </div>
 	      <button type="button" ng-click="add()">New Item</button>
@@ -74,15 +78,22 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 	miapp.controller('addPrendaCtrl', function($scope,$http,$timeout){
 		// $scope.Place;
 		$scope.colores = <?php echo json_encode($colores) ?>;
+		$scope.talles = <?php echo json_encode($talles) ?>;
 		$scope.Color = [];
-		 console.log($scope.colores);
+		$scope.Talle = [];
+		//  console.log($scope.colores);
 		$scope.colores.forEach(function(color){
 						$scope.Color.push({
 	            id: color.Colore.id,
 	            nombre: color.Colore.nombre,
 	      });
 		})
-
+		$scope.talles.forEach(function(talle){
+						$scope.Talle.push({
+	            id: talle.Talle.id,
+	            nombre: talle.Talle.nombre,
+	      });
+		})
 		// if($scope.Color) {
 		// 		$('#PrendaColor').chosen();
 		// 		$.each($scope.Color, function(index, color) {
