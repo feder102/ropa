@@ -11,7 +11,8 @@ class Prenda extends AppModel {
  *
  * @var array
  */
-// public $primaryKey = 'id';
+public $primaryKey = 'id';
+
 	public $validate = array(
 		'id' => array(
 			'numeric' => array(
@@ -92,40 +93,13 @@ class Prenda extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-	);
-	// public $belongsTo = array(
-	// 	'Colore' => array(
-	// 		'className' => 'Colore',
-	// 		'foreignKey' => 'id_color',
-	// 		'conditions' => '',
-	// 		'fields' => '',
-	// 		'order' => ''
-	// 	),
-	// 	'Talle' => array(
-	// 		'className' => 'Talle',
-	// 		'foreignKey' => 'id_talle',
-	// 		'conditions' => '',
-	// 		'fields' => '',
-	// 		'order' => ''
-	// 	),
-	// );
-	public $belongsTo = array(
-		'Talle' => array(
-			'className' => 'Talle' ,
-			'foreignKey' => 'id' ,
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Colore' => array(
-			'className' => 'Colore' ,
-			'foreignKey' => 'id' ,
+		'ItemPrenda' => array(
+			'className' => 'ItemPrenda',
+			'foreignKey' => 'id_prenda',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
- );
-//  public $belongsTo = array(
+	);
 
-// );
 }

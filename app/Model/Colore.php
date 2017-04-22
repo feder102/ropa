@@ -44,9 +44,9 @@ class Colore extends AppModel {
 		),
 	);
 	public  $hasMany = array(
-		'Prenda' => array(
-			'className' => 'Prenda',
-			'foreignKey' => 'id',
+		'ItemPrenda' => array(
+			'className' => 'ItemPrenda',
+			'foreignKey' => 'id_color',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

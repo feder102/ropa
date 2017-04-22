@@ -56,8 +56,8 @@ class PrendasController extends AppController {
 				$this->Session->setFlash(__('El/la prenda no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}
 		}else{
-			$colores = $this->Colore->find('all', array('conditions'=> array('Colore.deleted'=>0)));
-			$talles = $this->Talle->find('all', array('conditions'=> array('Talle.deleted'=>0)));
+			$colores = $this->Colore->find('all', array('recursive'=> -1,'conditions'=> array('Colore.deleted'=>0)));
+			$talles = $this->Talle->find('all', array('recursive'=> -1,'conditions'=> array('Talle.deleted'=>0)));
 			$this->set(array('colores'=> $colores,'talles'=> $talles));
 		}
 	}

@@ -44,9 +44,9 @@ class Talle extends AppModel {
 		// ),
 	);
 	public  $hasMany = array(
-		'Prenda' => array(
-			'className' => 'Prenda',
-			'foreignKey' => 'id',
+		'ItemPrenda' => array(
+			'className' => 'ItemPrenda',
+			'foreignKey' => 'id_talle',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
