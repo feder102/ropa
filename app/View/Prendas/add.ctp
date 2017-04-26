@@ -40,7 +40,7 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 					<?php //echo $this->Form->input('id_talle', array('label' => 'id_talle', 'class' => 'form-control', 'placeholder' => 'Id Talle'));?>
 				</div> -->
 				<div class="form-group">
-					<?php echo $this->Form->input('stock', array('label' => 'stock', 'class' => 'form-control', 'placeholder' => 'Stock'));?>
+					<?php echo $this->Form->input('stock', array('disabled','label' => 'stock', 'class' => 'form-control', 'placeholder' => 'Stock','data-ng-model'=> 'stockGral'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('pcosto', array('label' => 'pcosto', 'class' => 'form-control', 'placeholder' => 'Pcosto'));?>
@@ -57,9 +57,10 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 					<!-- <input type="text" hidden placeholder="Ingrese color" ng-model="{{id}}"> -->
 	        <!-- <input ng-class="{'blockInput': !item.id_talle}" type="text" placeholder="Ingrese talle" ng-model="item.Talle"> -->
 	        <input type="text" placeholder="Ingrese cantidad" ng-model="item.stock">
-	      </div>
-	      <button type="button" ng-click="add()">New Item</button>
-				{{Color}}
+        <button type="button" ng-click="add(item.id_color,item.id_talle,item.stock)">New Item</button>
+        </div>
+
+				{{stockGral}}
 				<!-- <div class="form-group">
 					< ?php echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
 				</div> -->
@@ -81,6 +82,8 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 		$scope.talles = <?php echo json_encode($talles) ?>;
 		$scope.Color = [];
 		$scope.Talle = [];
+    // $scope.itemPrenda = [];
+    $scope.stockGral = 0;
 		//  console.log($scope.colores);
 		$scope.colores.forEach(function(color){
 						$scope.Color.push({
@@ -110,14 +113,22 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 		// console.log($scope.id_prenda);
 		console.log($scope.Color);
 		$scope.add = function (id_color,id_talle,stock) {
-          $scope.itemPrenda.push({
-						id_prenda: "",
-            id_color: id_color,
-            id_talle: id_talle,
-            stock: stock,
-						created:$scope.fechaHoy
-      });
+      debugger;
+      if(typeof(id_color) != "undefined" && typeof(id_talle) != "undefined" && typeof(stock) != "undefined"){
+      //if(id_color != "" && id_talle != "" && stock != ""){
+        $scope.itemPrenda.push({
+          id_prenda: "",
+          id_color: id_color,
+          id_talle: id_talle,
+          stock: stock,
+          created:$scope.fechaHoy
+        });
+      }else{
+        alert("Rellene los campos previos.");
+      }
 
+
+      $scope.stockGral = parseInt(scope.stockGral) + stock;
 		};
 
 	})
