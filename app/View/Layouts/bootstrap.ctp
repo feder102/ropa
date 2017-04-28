@@ -18,11 +18,10 @@
 	?>
 
   	<!-- Latest compiled and minified CSS -->
-    <?php echo $this->Html->css(array('bootstrap', 'bootstrap-clockpicker', 'DataTables/css/DT_bootstrap', 'styles')); ?>
+    <?php echo $this->Html->css(array('bootstrap', 'bootstrap-clockpicker', 'DataTables/css/DT_bootstrap', 'styles','/js/angulardinamic/css/style')); ?>
 
  	<!-- Latest compiled and minified JavaScript -->
     <?php echo $this->Html->script(array('angular', 'jquery', 'bootstrap', 'bootstrap-datepicker', 'bootstrap-clockpicker','scripts', 'DataTables/media/js/jquery.dataTables', 'DataTables/media/js/DT_bootstrap')); ?>
- 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
