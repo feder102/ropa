@@ -31,7 +31,7 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 
 
 				<div class="form-group">
-					<?php echo $this->Form->input('descripcion', array('label' => 'descripcion', 'class' => 'form-control', 'placeholder' => 'Descripcion'));?>
+					<?php echo $this->Form->input('descripcion', array('label' => 'descripcion', 'class' => 'form-control', 'placeholder' => 'Descripcion','ng-model'=>'descripcion'));?>
 				</div>
 				<!-- <div class="form-group">
 					<?php //echo $this->Form->input('id_color', array('label' => 'id_color', 'class' => 'form-control', 'placeholder' => 'Id Color'));?>
@@ -43,7 +43,7 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 					<?php echo $this->Form->input('stock', array('disabled','label' => 'stock', 'class' => 'form-control', 'placeholder' => 'Stock','data-ng-model'=> 'stockGral'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('pcosto', array('label' => 'pcosto', 'class' => 'form-control', 'placeholder' => 'Pcosto'));?>
+					<?php echo $this->Form->input('pcosto', array('label' => 'pcosto', 'class' => 'form-control', 'placeholder' => 'Pcosto','ng-model'=>'pcosto'));?>
 				</div>
         <!-- {{itemPrenda.length}} -->
 				<fieldset ng-repeat="item in itemPrenda">
@@ -66,7 +66,8 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 					< ?php echo $this->Form->input('deleted', array('label' => 'deleted', 'class' => 'form-control', 'placeholder' => 'Deleted'));?>
 				</div> -->
             				<div class="form-group">
-					<?php echo $this->Form->submit(__('Guardar'), array('class' => 'btn btn-default')); ?>
+					<?php //echo $this->Form->submit(__('Guardar'), array('class' => 'btn btn-default')); ?>
+          <button class="btn btn-default" type="button" ng-click="submit()">Guardar</button>
 				</div>
 
 			<?php echo $this->Form->end() ?>
@@ -83,6 +84,8 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 		$scope.talles = <?php echo json_encode($talles) ?>;
 		$scope.Color = [];
 		$scope.Talle = [];
+    $scope.pcosto = 0;
+    $scope.descripcion = "";
     $scope.cantItem = 1;
     // $scope.itemPrenda = [];
     $scope.stockGral = 0;
@@ -116,7 +119,7 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
 		console.log($scope.Color);
 
     $scope.addNewChoice = function() {
-      debugger;
+      // debugger;
       if ($scope.itemPrenda.length == 0){
         $scope.itemPrenda = [{"id_prenda":"","id_color":"", "id_talle":"","stock":0,"created": fechaHoy}];
       }else{
@@ -128,7 +131,7 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
     };
 
     $scope.removeChoice = function() {
-      debugger;
+      // debugger;
       var lastItem = $scope.itemPrenda.length-1;
       $scope.stockGral = parseInt($scope.stockGral) - parseInt($scope.itemPrenda[lastItem]["stock"]);
       $scope.itemPrenda.splice(lastItem);
@@ -159,6 +162,30 @@ echo $this->Html->script('/js/chosen_v1.7.0/chosen.jquery');
       $scope.itemPrenda.splice(index,1);
       $scope.cantItem = parseInt($scope.cantItem) - 1;
     };
+
+    $scope.submit = function(){
+
+      var _data = {};
+      _data = [{
+                      'itemPrenda':$scope.itemPrenda,
+                      'Prenda':{'descripcion':$scope.descripcion,'pcosto':$scope.pcosto,'stock': parseInt($scope.stockGral)}
+                      }];
+
+            // var datafede =    angular.toJson(_data);
+      $http
+      // .post("<?php //echo Router::url(array('controller' => 'companies', 'action' => 'editProfile')) ?>" + '/' + $scope.company.id, _data)
+      .post("<?php echo Router::url(array('controller' => 'prendas', 'action' => 'add')) ?>", _data)
+      .success(function(data, status, headers, config) {
+          debugger;
+        console.log(data);
+        window.location = "<?php echo Router::url(array('controller'=>'prendas','action'=>'index'))?>";
+          // growlService.growl(' La sección de '+message+' ha sido actualizada exitosamente!', 'inverse');
+          // $('#easypie').data('easyPieChart').update(data.data);$('.percent').html(data.data)
+      }).error(function(data, status, headers, config) {
+          // growlService.growl('Los datos no pudieron ser actualizados!', 'inverse');
+      });
+    }
+
 	})
 
 </script>

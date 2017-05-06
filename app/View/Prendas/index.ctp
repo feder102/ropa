@@ -1,3 +1,4 @@
+<?php //pr($prendas); ?>
 <div class="prendas index">
 
 	<div class="row">
@@ -17,9 +18,9 @@
 					<div class="panel-heading">Acciones</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Prenda'), array('action' => 'add'), array('escape' => false)); ?></li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Color'), array('action' => 'add'), array('escape' => false)); ?></li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Talle'), array('action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Prenda'), array('controller'=>'prendas','action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Color'), array('controller'=>'colores','action' => 'add'), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Talle'), array('controller'=>'talles','action' => 'add'), array('escape' => false)); ?></li>
 						        							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -31,26 +32,20 @@
 			    <table id="listado" class="dynamicTable table table-striped">
 				    <thead>
 					    <tr>
-			                			                    
+
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('descripcion'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('color'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('talle'); ?></th>
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('stock'); ?></th>
 			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('precio costo'); ?></th>
-			                			                    <th style="text-align: center" nowrap><?php echo $this->Paginator->sort('deleted'); ?></th>
 			                			                <th style="text-align: center" nowrap class="no_sorting sorting actions">Acciones</th>
 					    </tr>
 				    </thead>
 				    <tbody>
 			            	<?php foreach ($prendas as $prenda): ?>
 					<tr>
-						
+
 						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['descripcion']); ?>&nbsp;</td>
-						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['id_color']); ?>&nbsp;</td>
-						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['id_talle']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['stock']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['pcosto']); ?>&nbsp;</td>
-						<td style="text-align: center" nowrap><?php echo h($prenda['Prenda']['deleted']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $prenda['Prenda']['id']), array('title' => 'Ver', 'escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $prenda['Prenda']['id']), array('title' => 'Editar', 'escape' => false)); ?>

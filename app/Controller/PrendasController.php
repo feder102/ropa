@@ -15,7 +15,7 @@ class PrendasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
-	public $uses = array('Prenda','Colore','Talle');
+	public $uses = array('Prenda','Colore','Talle','ItemPrenda');
 /**
  * index method
  *
@@ -47,11 +47,39 @@ class PrendasController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		if (($this->request->is(array('post'))) || ($this->request->is(array('put')))) {
+			// debug($this->request);
+			$Prenda = array();
+			$itemPrenda = array();
+			$this->autoRender = false;
+			$data = json_decode(file_get_contents("php://input"));
+			$fede = json_decode(json_encode($data[0]), True);
+			//  pr($fede);
 			$this->Prenda->create();
-			if ($this->Prenda->save($this->request->data)) {
+
+			$Prenda['Prenda'] = $fede['Prenda'];
+
+			// pr($Prenda);
+			//PRIMERO DEBEMOS GUARDAR LA PRENDA Y AHI VA A FUNCIONAR EL $THIS->PRENDA->ID
+
+			if ($this->Prenda->save($Prenda)) {
+				foreach ($fede['itemPrenda'] as $ip) {
+					$aux = array();
+					// pr($ip);
+					if($ip['id_color']){
+						$aux['id_prenda'] = $this->Prenda->id;
+						$aux['id_color'] = $ip['id_color'];
+						$aux['id_talle'] = $ip['id_talle'];
+						$aux['stock'] = $ip['stock'];
+						// $aux['created'] = date("dd-mm-YYYY hh:mm:ss", strtotime($ip['created']));
+						array_push($itemPrenda, $aux);
+					}
+				}
+				$Prenda['itemPrenda'] = $itemPrenda;
+				pr($fede['itemPrenda']);
+				$this->ItemPrenda->saveAll($itemPrenda);
             				$this->Session->setFlash(__('El/La prenda ha sido guardado/a.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
+				// return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El/la prenda no se pudo guardar. Por favor, intente nuevamente.'), 'default', array('class' => 'alert alert-danger'));
             			}
