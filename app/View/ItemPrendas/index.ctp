@@ -39,7 +39,7 @@
 			                			                <th style="text-align: center" nowrap class="no_sorting sorting actions">Acciones</th>
 					    </tr>
 				    </thead>
-				    <tbody>
+				    <tbody>							
 			            	<?php foreach ($itemPrendas as $itemPrenda): ?>
 					<tr>
 						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['id_prenda']); ?>&nbsp;</td>
@@ -49,9 +49,9 @@
 						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['created']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap><?php echo h($itemPrenda['ItemPrenda']['deleted']); ?>&nbsp;</td>
 						<td style="text-align: center" nowrap class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $itemPrenda['ItemPrenda']['y']), array('title' => 'Ver', 'escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $itemPrenda['ItemPrenda']['y']), array('title' => 'Editar', 'escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $itemPrenda['ItemPrenda']['y']), array('title' => 'Eliminar', 'escape' => false), __('Está seguro que quiere eliminar # %s?', $itemPrenda['ItemPrenda']['y'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $itemPrenda['ItemPrenda']['id_prenda']), array('title' => 'Ver', 'escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $itemPrenda['ItemPrenda']['id_prenda']), array('title' => 'Editar', 'escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $itemPrenda['ItemPrenda']['id_prenda']), array('title' => 'Eliminar', 'escape' => false), __('Está seguro que quiere eliminar # %s?', $itemPrenda['ItemPrenda']['id_prenda'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
